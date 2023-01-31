@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 /**
  *	AnagramMaker - <description goes here>
  *
@@ -19,6 +20,7 @@ public class AnagramMaker {
 	private int numWords;		// the number of words in a phrase to print
 	private int maxPhrases;		// the maximum number of phrases to print
 	private int numPhrases;		// the number of phrases that have been printed
+	private ArrayList<String> anagrams = new ArrayList<String>();
 		
 	/*	Initialize the database inside WordUtilities
 	 *	The database of words does NOT have to be sorted for AnagramMaker to work,
@@ -60,7 +62,26 @@ public class AnagramMaker {
 	 */
 	public void runAnagramMaker() {
 		printIntroduction();
+		System.out.println("");
+		String input = Prompt.getString("Word(s), name or phrase (q to quit)");
+		numWords = Prompt.getInt("Number of words in anagram");
+		maxPhrases = Prompt.getInt("Maximum number of anagrams to print");
+		findAnagrams(input);
 	}
-
-	
+	/**
+	 * Seeks out all anagrams of an input String
+	 * @param input		The string to decode for anagrams
+	 * @return			all anagrams of input
+	 */
+	public void findAnagrams(String input){
+		if(input.length()<=0){
+			for(int i = 0;i<anagrams.size();i++){
+				System.out.println(anagrams.get(i));
+			}
+			return;
+		}
+		else{
+			
+		}
+	}
 }
