@@ -16,7 +16,7 @@ public class SortMethods {
 	 *	@param x		index of first object to swap
 	 *	@param y		index of second object to swap
 	 */
-	private void swap(String{} arr, int x, int y) {
+	private void swap(String[] arr, int x, int y) {
 		String ct1 = arr[x];
 		arr[x] = arr[y];
 		arr[y] = ct1;
@@ -26,13 +26,13 @@ public class SortMethods {
 	 *	Selection Sort algorithm - sorts City objects by population in ascending order 
 	 *	@param arr		array of Integer objects to sort
 	 */
-	public void selectionSort(List<City> arr) {
-		City cts;
-		int size = arr.size();
+	public void selectionSort(String[] arr) {
+		String cts;
+		int size = arr.length;
 		for(int n = size;n>1;n--){
 			int max = 0;
 			for(int a = 1;a<n;a++){
-				if(arr.get(a).compareTo(arr.get(max))>0)
+				if(arr[a].compareTo(arr[max])>0)
 					max = a;
 			}
 			swap(arr, max, n-1);
@@ -43,17 +43,17 @@ public class SortMethods {
 	 *	Insertion Sort algorithm - sorts City objects by name in ascending order
 	 *	@param arr		array of Integer objects to sort
 	 */
-	public void insertionSort(List<City> arr) {
-		City temps;
-		int size = arr.size();
+	public void insertionSort(String[] arr) {
+		String temps;
+		int size = arr.length;
 		for(int n = 1;n<size;n++){
-			temps = arr.get(n);
+			temps = arr[n];
 			int placeholder = n;
-			while(placeholder>0&&(temps.compareOther(arr.get(placeholder-1))<0)){
-				arr.set(placeholder, arr.get(placeholder-1));
+			while(placeholder>0&&(temps.compareTo(arr[placeholder-1])<0)){
+				arr[placeholder] = arr[placeholder-1];
 				placeholder--;
 			}
-			arr.set(placeholder, temps);
+			arr[placeholder] = temps;
 		}
 	}
 	
@@ -62,7 +62,7 @@ public class SortMethods {
 	 *	@param array		array of Integer objects to sort
 	 */
 	public void mergeSort(String[] array) {
-		int size = array.size();
+		int size = array.length;
 		//System.out.println(size);
 		//System.out.println(temp.size());
 		temp = new String[100000];
@@ -73,7 +73,7 @@ public class SortMethods {
 		}
 		//System.out.println(temp.size());
 		recursiveSort(array, 0, size-1);
-		for(int i = temp.size()-1;i>=0;i--){
+		for(int i = temp.length-1;i>=0;i--){
 			temp[i] = "";
 		}
 	}
@@ -86,7 +86,7 @@ public class SortMethods {
 	 */
 	public void recursiveSort(String[] array, int start, int end){
 		if(end-start<2){
-			if(end>start&&array.get(end).compareTo(array.get(start))>0){
+			if(end>start&&array[end].compareTo(array[start])>0){
 				swap(array, end, start);
 			}
 		}
@@ -106,7 +106,7 @@ public class SortMethods {
 	 * @param ed		end of the array
 	 */
 	
-	public void merge(String arr, int st, int mid, int ed){
+	public void merge(String arr[], int st, int mid, int ed){
 		//System.out.println("I");
 		int start = st;
 		int half = mid+1;

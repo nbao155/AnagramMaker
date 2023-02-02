@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ArrayList;
 /**
  *	Provides utilities for word games:
  *	1. finds all words in the dictionary that match a list of letters
@@ -17,7 +18,7 @@ public class WordUtils
 	private String[] words;		// the dictionary of words
 	
 	// File containing dictionary of almost 100,000 words.
-	private final String WORD_FILE = "wordList.txt";
+	private final String WORD_FILE = "randomWords.txt";
 	
 	/* Constructor */
 	public WordUtils() { }
@@ -36,18 +37,18 @@ public class WordUtils
 	}
 	
 	/**	Load all of the dictionary from a file into words array. */
-	public void loadWords () {
+	public void loadWords (String fileNm) {
 		Scanner sc = new Scanner(System.in);
 		int arrayLength = 0;
-		sc = FileUtils.openToRead(WORD_FILE);
-		while(sc.hasNextLine()&&arrayLength<90934){
+		sc = FileUtils.openToRead(fileNm);
+		while(sc.hasNextLine()&&arrayLength<48831){
 			arrayLength++;
 		//	System.out.println(arrayLength);
 		}
 		words = new String[arrayLength];
 		arrayLength = 0;
-		FileUtils.openToRead(WORD_FILE);
-		while(sc.hasNextLine()&&arrayLength<90934){
+		FileUtils.openToRead(fileNm);
+		while(sc.hasNextLine()&&arrayLength<48831){
 			words[arrayLength] = sc.next();
 		//	System.out.println(words[arrayLength]);
 			arrayLength++;
@@ -237,7 +238,7 @@ public class WordUtils
 	}
 	
 	public void run() {
-		loadWords();
+		loadWords(WORD_FILE);
 		String letters = Prompt.getString("Please enter a list of letters, from 3 to 12 letters long, without spaces");
 		String [] word = findAllWords(letters);
 		System.out.println();
