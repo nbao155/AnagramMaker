@@ -68,6 +68,9 @@ public class AnagramMaker {
 		boolean isRunning = true;
 		String input= "";
 		while(isRunning){
+			anagrams = new ArrayList<String>();
+			counter = 0;
+			resultArray = new ArrayList<String>();
 			input = Prompt.getString("Word(s), name or phrase (q to quit)");
 			if(input.equals("q")==false){
 				numWords = Prompt.getInt("Number of words in anagram");
