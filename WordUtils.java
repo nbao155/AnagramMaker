@@ -182,6 +182,12 @@ public class WordUtils
 		return score;
 	}
 	
+	/**
+	*	 Checks if an input word can be formed from the given letters
+	* @param word	The input word
+	* @param letters	The input clump of letters
+	* @return	If the input word can be formed from the letters
+	*/
 	private boolean wordMatch(String word, String letters) {
 		// if the word is longer than letters return false
 		if (word.length() > letters.length()) return false;
